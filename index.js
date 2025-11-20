@@ -531,17 +531,36 @@ function countTotalPassengers() {
   return output;
 }
 //==============================SOLVED===============================
+
+//==============================SOLVED===============================
 // CHALLENGE 7: Group bookings by their status (confirmed, pending, etc.)
 // NO RESTRICTION You are encouraged to use map, filter, reduce, and Object.keys/Object.values/Object.entries where appropriate.
 function groupBookingsByStatus() {
+  let output = {
+    confirmed: [],
+    pending: [],
+    cancelled: [],
+  };
+
+  for (let i = 0; i < bookingsArray.length; i++) {
+    if (bookingsArray[i].status === "confirmed") {
+      output.confirmed.push(bookingsArray[i]);
+    } else if (bookingsArray[i].status === "pending") {
+      output.pending.push(bookingsArray[i]);
+    } else if (bookingsArray[i].status === "cancelled") {
+      output.cancelled.push(bookingsArray[i]);
+    }
+  }
+
+  return output;
   // We want an object that looks like:
   // {
   //   confirmed: [booking1, booking2...],
-  //   pending: [booking3...]
+  //   pending: [booking3...],
+  //   cancelled: []
   // }
 }
-
-console.log(bookingsArray);
+//==============================SOLVED===============================
 
 // CHALLENGE 8: Find the most expensive booking
 // RESTRICTION use Only for, while, and standard logic.
