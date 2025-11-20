@@ -475,22 +475,62 @@ function getAvailableDestinations() {
 }
 //==============================SOLVED===============================
 
+//---------------------------EXTRACT BOOKINGS ARRAY--------------------
+let bookingsArray = spaceData.bookings;
+//---------------------------EXTRACT BOOKINGS ARRAY--------------------
+
+//==============================SOLVED===============================
 // CHALLENGE 3: Get the very first booking in our system
 // RESTRICTION use Only for, while, and standard logic.
-function getFirstBooking() {}
+function getFirstBooking() {
+  return bookingsArray[0];
+}
+//==============================SOLVED===============================
 
 // CHALLENGE 4: Calculate how much money we've made from all bookings
 // NO RESTRICTION You are encouraged to use map, filter, reduce, and Object.keys/Object.values/Object.entries where appropriate.
-function calculateTotalRevenue() {}
+//==============================SOLVED===============================
+function calculateTotalRevenue() {
+  let moneyMade = 0;
+  for (let i = 0; i < bookingsArray.length; i++) {
+    moneyMade += bookingsArray[i].totalPrice;
+  }
+  let output = `The total of money we made is: ${moneyMade}$`;
+  return output;
+}
+//==============================SOLVED===============================
 
+//---------------------------EXTRACT USERS ARRAY--------------------
+let usersArray = spaceData.users;
+console.log(usersArray[0].email);
+//---------------------------EXTRACT USERS ARRAY--------------------
+
+//==============================SOLVED===============================
 // CHALLENGE 5: Find a user by their email address
 // RESTRICTION use Only for, while, and standard logic.
-function findUserByEmail(email) {}
+function findUserByEmail(email) {
+  let output;
+  for (let i = 0; i < usersArray.length; i++) {
+    if (email === usersArray[i].email) {
+      output = usersArray[i];
+    }
+  }
+  return output;
+}
+//==============================SOLVED===============================
 
+//==============================SOLVED===============================
 // CHALLENGE 6: Count all passengers across every booking
 // RESTRICTION use Only for, while, and standard logic.
-function countTotalPassengers() {}
-
+function countTotalPassengers() {
+  let totalPassengers = 0;
+  for (let i = 0; i < bookingsArray.length; i++) {
+    totalPassengers += bookingsArray[i].passengers.length;
+  }
+  let output = `The total number of passengers is: ${totalPassengers}`;
+  return output;
+}
+//==============================SOLVED===============================
 // CHALLENGE 7: Group bookings by their status (confirmed, pending, etc.)
 // NO RESTRICTION You are encouraged to use map, filter, reduce, and Object.keys/Object.values/Object.entries where appropriate.
 function groupBookingsByStatus() {
@@ -500,6 +540,8 @@ function groupBookingsByStatus() {
   //   pending: [booking3...]
   // }
 }
+
+console.log(bookingsArray);
 
 // CHALLENGE 8: Find the most expensive booking
 // RESTRICTION use Only for, while, and standard logic.
